@@ -163,10 +163,10 @@ class Item implements Arrayable
 
         if ($this->url) {
             if (is_array($this->route)) {
-                return URL::to(Arr::get($this->url, 0), Arr::get($this->url, 1, []), true);
+                return URL::to(Arr::get($this->url, 0), Arr::get($this->url, 1, []), false);
             }
 
-            return URL::to($this->url, [], true);
+            return URL::to($this->url, [], false);
         }
 
         return '';
