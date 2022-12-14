@@ -196,6 +196,9 @@ class Item implements Arrayable
     {
         if ($this->route) {
             if (is_array($this->route)) {
+                if (Arr::get($this->route, 0) === "tenant.pages.show") {
+                    return Request::is(Arr::get($this->route, "1.page"));
+                }
                 return Route::is(Arr::get($this->route, 0));
             }
             if (is_string($this->route)) {
